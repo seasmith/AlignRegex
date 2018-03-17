@@ -1,9 +1,24 @@
-Name: Align Assign
+Name: Align <-
 Description: Aligns '<-' assignment operators within a highlighted area.
 Binding: alignAssign
 Interactive: false
 
-Name: Align Assign 2
+Name: Align =
 Description: Aligns assignment '=' operators within a highlighted area.
 Binding: alignAssign2
 Interactive: false
+
+Name: Align :
+Description: Aligns assignment ':' delimiters within a highlighted area.
+Binding: alignColon
+Interactive: false
+
+Name: Align AS
+Description: Aligns 'AS' in SQL script within a highlighted area.
+Binding: alignAS
+Interactive: false
+
+Name: Align Regex
+Description: Aligns given regular expression within a highlighted area.
+Binding: alignCustom
+Interactive: true
