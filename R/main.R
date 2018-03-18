@@ -1,5 +1,4 @@
 #' @include utils.main.R
-#' @include utils.R
 NULL
 
 #' Align a highlighted region's assignment operators.
@@ -31,38 +30,6 @@ alignAssign2 <- function() {
 }
 
 
-
-#' Align a highlighted region's AS clauses within a SQL statement.
-#'
-#' @return Aligns the AS clauses in a SQL statement within a highlighted region.
-#' @export
-alignAS <- function() {
-  capture <- capture()
-  area    <- captureArea(capture)
-  loc     <- findRegEx(find        = "as",
-                       where       = area,
-                       ignore_case = TRUE,
-                       wrap_space  = TRUE)
-  insertList <- assembleInsert(loc)
-  insertr(insertList, capture$id)
-}
-
-
-
-#' Align a highlighted region's : separators.
-#'
-#' @return Aligns the : delimiter found in YAML within a highlighted region.
-#' @export
-alignColon <- function() {
-  capture <- capture()
-  area    <- captureArea(capture)
-  loc     <- findRegEx(find        = ":",
-                       where       = area)
-  insertList <- assembleInsert(loc)
-  insertr(insertList)
-}
-
-
 #' Align a given regular expression.
 #'
 #' @param x Custom input; a regular expression.
@@ -84,11 +51,9 @@ alignRegex <- function(x) {
 #' @export
 alignCustom <- function() {
   ui <- miniUI::miniPage(
-    includeHighlightJs(),
     miniUI::gadgetTitleBar("Align Your Regular Expressions", left = NULL),
     miniUI::miniContentPanel(
       shiny::strong("Pre-set RegEx's to match and align."),
-      # shiny::hr(),
       miniUI::miniButtonBlock(
         shiny::actionButton("alignAssign", "<-"),
         shiny::actionButton("alignAssign2", "="),
@@ -115,19 +80,19 @@ alignCustom <- function() {
     })
     # Align :
     shiny::observeEvent(input$alignColon, {
-      alignColon()
+      alignRegex(":")
       invisible(shiny::stopApp())
     })
     # Align AS
     shiny::observeEvent(input$alignAS, {
-      alignAS()
+      alignRegex("AS")
       invisible(shiny::stopApp())
     })
     # Align Regex
     # txt <- reactiveValues(input = NULL)
     shiny::observeEvent(input$runRegex, {
       # Don't run if input value was not given
-      if (input$regex == "") invisible(shiny::stopApp())
+      if(input$regex == "") invisible(shiny::stopApp())
       alignRegex(input$regex)
       invisible(shiny::stopApp())
     })
