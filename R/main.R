@@ -53,7 +53,7 @@ alignRegex <- function(x, ...) {
 #' @export
 alignCustom <- function() {
   ui <- miniUI::miniPage(
-    shiny::includeCSS("inst/gadget/css/app.css"),
+    shiny::includeCSS(system.file("gadget/css/app.css", package = "AlignRegex")),
     miniUI::gadgetTitleBar("Align Regular Expressions of Your Choice", left = NULL),
     miniUI::miniContentPanel(
       shiny::h2("Pre-set Regular Expressions"),
