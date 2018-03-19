@@ -1,90 +1,46 @@
+[![Build Status](https://travis-ci.org/seasmith/AlignRegex.svg?branch=master)](https://travis-ci.org/seasmith/AlignRegex)
 
-AlignAssign
-===========
+![Lifecycle](https://img.shields.io/badge/lifecycle-developing-red.svg)
 
-[![Build Status](https://travis-ci.org/seasmith/AlignAssign.svg?branch=master)](https://travis-ci.org/seasmith/AlignAssign)
+<!-- ![GitHub release](https://img.shields.io/github/release/seasmith/AlignRegex.svg) -->
+AlignRegex
+==========
 
-Align the assignment operators (either `<-` or `=`) within a highlighted area.
+Align either pre-defined or user-input regular expressions. This is a port of [AlignAssign](https://github.com/seasmith/AlignAssign).
 
-Before:
+Main Demo
+---------
 
-``` r
-a <- 1:5
-bbb <- 6:10
-c <- letters
-```
+![Main demo](inst/media/main_demo.gif)
 
-After:
+Pre-Defined
+-----------
 
-``` r
-a   <- 1:5
-bbb <- 6:10
-c   <- letters
-```
+### Align &lt;-
 
-![](inst/media/demo2.gif)
+Nothing here, yet. This is also its own separate addin. ![]()
 
-### What
+### Align =
 
-AlignAssign contains two addins whose purpose is to align all of either the `<-` (`Align Assign`) or `=` (`Align Assign 2`) assignment operators within a highlighted region. It does not "reflow" your code if the alignment breaks the page width. This addin also does not treat commented lines differently to uncommented lines. **If there is either one of the assignment operators within a highlighted comment line, then it will either align that operator or align other operators to it.**
+Nothing here, yet. This is also its own separate addin. ![]()
 
-### Install
+### Align :
 
-``` r
-devtools::install_github("seasmith/AlignAssign")`
-```
+Nothing here, yet. ![]()
 
-### Examples
+### Align AS
 
-#### Align `<-`'s with Align Assign
+Nothing here, yet. ![]()
 
-When you highlight the following chunk of code (region) - whether you highlight the entirity or just a portion of the first and last lines - and then run the `Align Assign` addin...
+User-Input
+----------
 
-``` r
-# This is a commented line
-# So is this
-a <- 1:5
-b <- 6:10
-copy_a <- a
-# More comments
-```
+Nothing here, yet. ![]()
 
-...the result will look like this.
+Behavior of commented-out regular expressions
+---------------------------------------------
 
-``` r
-# This is a commented line
-# So is this
-a      <- 1:5
-b      <- 6:10
-copy_a <- a
-# More comments
-```
-
-#### Align `=`'s with Align Assign 2
-
-The above example also works for the `=` operator when using the other addin, `Align Assign 2`. Before...
-
-``` r
-# Perosnal information
-list(surname = "Crichton",
-     firstName = "John",
-     address = NA,
-     occupation = "fugitive")
-```
-
-...after.
-
-``` r
-# Perosnal information
-list(surname    = "Crichton",
-     firstName  = "John",
-     address    = NA,
-     occupation = "fugitive")
-```
-
-#### Behavior of commented-out assignment operators
-
-Be mindful that highling a chunk of code which has assignment operators within commented lines, like the following, and running the `Align Assign 2` addin...
+Be mindful that highling a chunk of code which has assignment operators within commented lines, like the following, and running the `Align <-` addin...
 
 ``` r
 # This is a commented line with an assignment operator <-
@@ -104,9 +60,10 @@ c                                                      <- 11:15
 # There is an assignment operator                      <- here, too
 ```
 
-#### Not so smart aligner
+Not so smart aligner
+--------------------
 
-There is also no special handling of assignment operators within a function. So, if you highlighted the entire chunk below and then ran the `Align Assign` addin...
+There is also no special handling of assignment operators within a function. So, if you highlighted the entire chunk below and then ran the `Align <-` addin...
 
 ``` r
 var1 <- letters

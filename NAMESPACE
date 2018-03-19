@@ -2,3 +2,5 @@
 
 export(alignAssign)
 export(alignAssign2)
+export(alignCustom)
+export(alignRegex)
