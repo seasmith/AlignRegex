@@ -1,0 +1,50 @@
+.gadget-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.gadget-title {
+    background-color: #FAFAFA;
+}
+
+.gadget-title h1 {
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+hr {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.gadget-block-button {
+    background-color: white;
+    border-top: none;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.gadget-block-button .btn {
+    margin-top: 0px;
+
+}
+
+.gadget-block-button .btn:focus,
+.gadget-block-button .btn:hover {
+    background-color: steelblue;
+}
+
+.gadget-block-button .btn:first-child {
+    margin-left: 0px;
+}
+
+.gadget-block-button .btn:last-child {
+    margin-right: 0px;
+}
+
+#regex, .gadget-block-button .btn {
+    font-family: 'Lucida Console', 'Bitstream Vera Sans Mono', monospace;
+}

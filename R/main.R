@@ -33,13 +33,15 @@ alignAssign2 <- function() {
 #' Align a given regular expression.
 #'
 #' @param x Custom input; a regular expression.
+#' @param ... Additional arguments passed along to \code{regexec()}
 #' @return Aligns regular expression within a highlighted region.
 #' @export
-alignRegex <- function(x) {
+alignRegex <- function(x, ...) {
   capture <- capture()
   area    <- captureArea(capture)
-  loc     <- findRegEx(find        = x,
-                       where       = area)
+  loc     <- findRegEx(find  = x,
+                       where = area,
+                       ...)
   insertList <- assembleInsert(loc)
   insertr(insertList)
 }
@@ -51,18 +53,25 @@ alignRegex <- function(x) {
 #' @export
 alignCustom <- function() {
   ui <- miniUI::miniPage(
-    miniUI::gadgetTitleBar("Align Your Regular Expressions", left = NULL),
+    shiny::includeCSS("inst/gadget/css/app.css"),
+    miniUI::gadgetTitleBar("Align Regular Expressions of Your Choice", left = NULL),
     miniUI::miniContentPanel(
-      shiny::strong("Pre-set RegEx's to match and align."),
+      shiny::h2("Pre-set Regular Expressions"),
       miniUI::miniButtonBlock(
-        shiny::actionButton("alignAssign", "<-"),
+        shiny::actionButton("alignAssign" , "<-"),
         shiny::actionButton("alignAssign2", "="),
-        shiny::actionButton("alignColon", ":"),
-        shiny::actionButton("alignAS", "AS")
-      ),
+        shiny::actionButton("alignColon"  , ":"),
+        shiny::actionButton("alignAS"     , "AS")
+        ),
       shiny::hr(),
-      shiny::textInput("regex", "Type your regular expression here"),
-      shiny::actionButton("runRegex", "Run")
+      shiny::h2("Custom Regular Expression"),
+      shiny::textInput("regex", NULL),
+      shiny::fillRow(
+        shiny::actionButton("runRegex", "Run"),
+        shiny::checkboxInput("perl", "perl", TRUE),
+        shiny::checkboxInput("ingore.case", "ignore.case", FALSE),
+        width = "35%", height = "10%"
+        )
     )
   )
 
@@ -89,11 +98,12 @@ alignCustom <- function() {
       invisible(shiny::stopApp())
     })
     # Align Regex
+    # Handle checkboxes first
     # txt <- reactiveValues(input = NULL)
     shiny::observeEvent(input$runRegex, {
       # Don't run if input value was not given
       if(input$regex == "") invisible(shiny::stopApp())
-      alignRegex(input$regex)
+      alignRegex(input$regex, perl = input$perl, ignore.case = input$ignore.case)
       invisible(shiny::stopApp())
     })
 
