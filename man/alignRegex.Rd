@@ -4,10 +4,12 @@
 \alias{alignRegex}
 \title{Align a given regular expression.}
 \usage{
-alignRegex(x)
+alignRegex(x, ...)
 }
 \arguments{
 \item{x}{Custom input; a regular expression.}
+
+\item{...}{Additional arguments passed along to \code{regexec()}}
 }
 \value{
 Aligns regular expression within a highlighted region.
