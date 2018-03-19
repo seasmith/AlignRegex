@@ -1,76 +1,48 @@
-# AlignAssign
+AlignRegex
+==========
 
-[![Build Status](https://travis-ci.org/seasmith/AlignAssign.svg?branch=master)](https://travis-ci.org/seasmith/AlignAssign)
+[![Build Status](https://travis-ci.org/seasmith/AlignRegex.svg?branch=master)](https://travis-ci.org/seasmith/AlignRegex)
 
-Align the assignment operators (either `<-` or `=`) within a highlighted area.
+![Lifecycle](https://img.shields.io/badge/lifecycle-developing-red.svg)
 
-Before:
-```{r}
-a <- 1:5
-bbb <- 6:10
-c <- letters
-```
+<!-- ![GitHub release](https://img.shields.io/github/release/seasmith/AlignRegex.svg) -->
+Align either pre-defined or user-input regular expressions. This is a port of [AlignAssign](https://github.com/seasmith/AlignAssign).
 
-After:
-```{r}
-a   <- 1:5
-bbb <- 6:10
-c   <- letters
-```
+Main Demo
+---------
 
-![](inst/media/demo2.gif)
+![Main demo](inst/media/main_demo.gif)
 
-### What
-AlignAssign contains two addins whose purpose is to align all of either the  `<-` or `=` assignment operators within a highlighted region. It does not "reflow" your code if the alignment breaks the page width. This addin also does not treat commented lines differently to uncommented lines. __If there is either one of the assignment operators within a highlighted comment line, then it will either align that operator or align other operators to it.__
+Pre-Defined
+-----------
 
-### Install
-`devtools::install_github("seasmith/AlignAssign")`
+### Align &lt;-
 
-### Demos
+Nothing here, yet. This is also its own separate addin. ![]()
 
-#### Demo 1
-When you highlight the following chunk of code (region) - whether you highlight the entirity or just a portion of the first and last lines - and then run the addin...
-```{r}
-# This is a commented line
-# So is this
-a <- 1:5
-b <- 6:10
-copy_a <- a
-# More comments
-```
+### Align =
 
-...the result will look like this.
-```{r}
-# This is a commented line
-# So is this
-a      <- 1:5
-b      <- 6:10
-copy_a <- a
-# More comments
-```
+Nothing here, yet. This is also its own separate addin. ![]()
 
-#### Demo 2
-The above example also works for the `=` operator (where it may be most useful when listing elements in a list). Before...
-```{r}
-# Perosnal information
-list(surname = "Crichton",
-     firstName = "John",
-     address = NA,
-     occupation = "fugitive")
-```
+### Align :
 
-...after.
-```{r}
-# Perosnal information
-list(surname    = "Crichton",
-     firstName  = "John",
-     address    = NA,
-     occupation = "fugitive")
-```
+Nothing here, yet. ![]()
 
-#### Demo 3
-Be mindful that highling a chunk of code which has assignment operators within commented lines, like the following, and running the addin...
-```{r}
+### Align AS
+
+Nothing here, yet. ![]()
+
+User-Input
+----------
+
+Nothing here, yet. ![]()
+
+Behavior of commented-out regular expressions
+---------------------------------------------
+
+Be mindful that highling a chunk of code which has assignment operators within commented lines, like the following, and running the `Align <-` addin...
+
+``` r
 # This is a commented line with an assignment operator <-
 a <- 1:5
 b <- 6:10
@@ -78,8 +50,9 @@ c <- 11:15
 # There is an assignment operator <- here, too
 ```
 
-...will result in this.
-```{r}
+...will result in something like this.
+
+``` r
 # This is a commented line with an assignment operator <-
 a                                                      <- 1:5
 b                                                      <- 6:10
@@ -87,9 +60,12 @@ c                                                      <- 11:15
 # There is an assignment operator                      <- here, too
 ```
 
-#### Demo 4
-There is also no special handling of assignment operators within a function. So, if you highlighted the entire chunk below and then ran the addin...
-```{r}
+Not so smart aligner
+--------------------
+
+There is also no special handling of assignment operators within a function. So, if you highlighted the entire chunk below and then ran the `Align <-` addin...
+
+``` r
 var1 <- letters
 var2 <- as.list(sample(1:26, 26))
 names(var2) <- var1[unlist(var2)]
@@ -105,8 +81,9 @@ list.pos <- function(name, lst){
 positions <- list.pos(c("a", "bbb", "c"), var2)
 ```
 
-...the result would look like this.
-```{r}
+...the result will look like this.
+
+``` r
 var1                                     <- letters
 var2                                     <- as.list(sample(1:26, 26))
 names(var2)                              <- var1[unlist(var2)]

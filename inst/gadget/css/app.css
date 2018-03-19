@@ -1,9 +1,13 @@
+body {
+    background-color: white;
+}
+
 .gadget-container {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .gadget-title {
-    background-color: #FAFAFA;
+    background-color: #efefef;
 }
 
 .gadget-title h1 {
@@ -35,6 +39,7 @@ hr {
 .gadget-block-button .btn:focus,
 .gadget-block-button .btn:hover {
     background-color: steelblue;
+    color: white;
 }
 
 .gadget-block-button .btn:first-child {
