@@ -1,81 +1,51 @@
 ---
-output: github_document
+output:
+  md_document:
+    variant: markdown_github
 ---
 
-# AlignAssign
+[![Build Status](https://travis-ci.org/seasmith/AlignRegex.svg?branch=master)](https://travis-ci.org/seasmith/AlignRegex)
 
-[![Build Status](https://travis-ci.org/seasmith/AlignAssign.svg?branch=master)](https://travis-ci.org/seasmith/AlignAssign)
+![Lifecycle](https://img.shields.io/badge/lifecycle-developing-red.svg)
 
-Align the assignment operators (either `<-` or `=`) within a highlighted area.
+<!-- ![GitHub release](https://img.shields.io/github/release/seasmith/AlignRegex.svg) -->
 
-Before:
-```{r, eval=FALSE}
-a <- 1:5
-bbb <- 6:10
-c <- letters
-```
+# AlignRegex
 
-After:
-```{r, eval=FALSE}
-a   <- 1:5
-bbb <- 6:10
-c   <- letters
-```
+Align either pre-defined or user-input regular expressions. This is a port of [AlignAssign](https://github.com/seasmith/AlignAssign).
 
-![](inst/media/demo2.gif)
+## Main Demo
 
-### What
-AlignAssign contains two addins whose purpose is to align all of either the  `<-` (`Align Assign`) or `=` (`Align Assign 2`) assignment operators within a highlighted region. It does not "reflow" your code if the alignment breaks the page width. This addin also does not treat commented lines differently to uncommented lines. __If there is either one of the assignment operators within a highlighted comment line, then it will either align that operator or align other operators to it.__
+![Main demo](inst/media/main_demo.gif)
 
-### Install
-```{r install, eval=FALSE}
-devtools::install_github("seasmith/AlignAssign")`
-```
+## Pre-Defined
 
-### Examples
+### Align <-
+Nothing here, yet.
+This is also its own separate addin.
+![]()
 
-#### Align `<-`'s with Align Assign
-When you highlight the following chunk of code (region) - whether you highlight the entirity or just a portion of the first and last lines - and then run the `Align Assign` addin...
-```{r, eval=FALSE}
-# This is a commented line
-# So is this
-a <- 1:5
-b <- 6:10
-copy_a <- a
-# More comments
-```
+### Align =
+Nothing here, yet.
+This is also its own separate addin.
+![]()
 
-...the result will look like this.
-```{r, eval=FALSE}
-# This is a commented line
-# So is this
-a      <- 1:5
-b      <- 6:10
-copy_a <- a
-# More comments
-```
+### Align :
+Nothing here, yet.
+![]()
 
-#### Align `=`'s with Align Assign 2
-The above example also works for the `=` operator when using the other addin, `Align Assign 2`. Before...
-```{r, eval=FALSE}
-# Perosnal information
-list(surname = "Crichton",
-     firstName = "John",
-     address = NA,
-     occupation = "fugitive")
-```
+### Align AS
+Nothing here, yet.
+![]()
 
-...after.
-```{r, eval=FALSE}
-# Perosnal information
-list(surname    = "Crichton",
-     firstName  = "John",
-     address    = NA,
-     occupation = "fugitive")
-```
+## User-Input
+Nothing here, yet.
+![]()
 
-#### Behavior of commented-out assignment operators
-Be mindful that highling a chunk of code which has assignment operators within commented lines, like the following, and running the `Align Assign 2` addin...
+
+
+## Behavior of commented-out regular expressions
+Be mindful that highling a chunk of code which has assignment operators within commented lines, like the following, and running the `Align <-` addin...
 ```{r, eval=FALSE}
 # This is a commented line with an assignment operator <-
 a <- 1:5
@@ -93,8 +63,8 @@ c                                                      <- 11:15
 # There is an assignment operator                      <- here, too
 ```
 
-#### Not so smart aligner
-There is also no special handling of assignment operators within a function. So, if you highlighted the entire chunk below and then ran the `Align Assign` addin...
+## Not so smart aligner
+There is also no special handling of assignment operators within a function. So, if you highlighted the entire chunk below and then ran the `Align <-` addin...
 ```{r, eval=FALSE}
 var1 <- letters
 var2 <- as.list(sample(1:26, 26))
@@ -127,3 +97,6 @@ list.pos                                 <- function(name, lst){
 }
 positions                                <- list.pos(c("a", "bbb", "c"), var2)
 ```
+
+## Future Considerations
+* Use [shinyalert](https://github.com/daattali/shinyalert) to handle cases where no regex match occurs, too few lines have been selected, and other errors and warnings that may occur.
