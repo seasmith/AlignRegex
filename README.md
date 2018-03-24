@@ -1,10 +1,10 @@
-[![Build Status](https://travis-ci.org/seasmith/AlignRegex.svg?branch=master)](https://travis-ci.org/seasmith/AlignRegex)
-
-![Lifecycle](https://img.shields.io/badge/lifecycle-developing-red.svg)
-
-<!-- ![GitHub release](https://img.shields.io/github/release/seasmith/AlignRegex.svg) -->
 AlignRegex
 ==========
+
+[![Build Status](https://travis-ci.org/seasmith/AlignRegex.svg?branch=master)](https://travis-ci.org/seasmith/AlignRegex) ![Lifecycle](https://img.shields.io/badge/lifecycle-developing-red.svg) <!-- ![GitHub release](https://img.shields.io/github/release/seasmith/AlignRegex.svg) -->
+
+Overview
+--------
 
 Align either pre-defined or user-input regular expressions. This is a port of [AlignAssign](https://github.com/seasmith/AlignAssign).
 
@@ -12,30 +12,6 @@ Main Demo
 ---------
 
 ![Main demo](inst/media/main_demo.gif)
-
-Pre-Defined
------------
-
-### Align &lt;-
-
-Nothing here, yet. This is also its own separate addin. ![]()
-
-### Align =
-
-Nothing here, yet. This is also its own separate addin. ![]()
-
-### Align :
-
-Nothing here, yet. ![]()
-
-### Align AS
-
-Nothing here, yet. ![]()
-
-User-Input
-----------
-
-Nothing here, yet. ![]()
 
 Behavior of commented-out regular expressions
 ---------------------------------------------
@@ -98,3 +74,8 @@ list.pos                                 <- function(name, lst){
 }
 positions                                <- list.pos(c("a", "bbb", "c"), var2)
 ```
+
+Future Considerations
+---------------------
+
+-   Use [shinyalert](https://github.com/daattali/shinyalert) to handle cases where no regex match occurs, too few lines have been selected, and other errors and warnings that may occur.
