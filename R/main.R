@@ -72,6 +72,7 @@ alignCustom <- function() {
       miniUI::miniButtonBlock(
         shiny::actionButton("alignAssign" , "<-"),
         shiny::actionButton("alignAssign2", "="),
+        shiny::actionButton("alignTilde"  , "~"),
         shiny::actionButton("alignColon"  , ":"),
         shiny::actionButton("alignAS"     , "AS")
         ),
@@ -97,6 +98,11 @@ alignCustom <- function() {
     # Align =
     shiny::observeEvent(input$alignAssign2, {
       alignAssign2()
+      invisible(shiny::stopApp())
+    })
+    # Align =
+    shiny::observeEvent(input$alignTilde, {
+      alignTilde()
       invisible(shiny::stopApp())
     })
     # Align :
