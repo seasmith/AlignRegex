@@ -29,6 +29,18 @@ alignAssign2 <- function() {
   insertr(insertList, capture$id)
 }
 
+#' Aligns the tilder '~' within a highlighted area.
+#'
+#' @return Aligns the tilde (\code{~}) within a highlighted region.
+#' @export
+alignTilde <- function() {
+  capture <- capture()
+  area    <- captureArea(capture)
+  loc     <- findRegEx(find = "~", where = area)
+  insertList <- assembleInsert(loc)
+  insertr(insertList, capture$id)
+}
+
 
 #' Align a given regular expression.
 #'

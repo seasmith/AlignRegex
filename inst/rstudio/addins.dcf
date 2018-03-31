@@ -8,14 +8,9 @@ Description: Aligns assignment '=' operators within a highlighted area.
 Binding: alignAssign2
 Interactive: false
 
-Name: Align :
-Description: Aligns assignment ':' delimiters within a highlighted area.
-Binding: alignColon
-Interactive: false
-
-Name: Align AS
-Description: Aligns 'AS' in SQL script within a highlighted area.
-Binding: alignAS
+Name: Align ~
+Description: Aligns the tilde '~' within a highlighted area.
+Binding: alignTilde
 Interactive: false
 
 Name: Align Regex
