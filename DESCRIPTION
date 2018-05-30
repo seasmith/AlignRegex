@@ -1,15 +1,15 @@
 Package: AlignRegex
 Type: Package
-Title: Align either pre-defined or custom regular expressions within a highlighted area
+Title: Align pre-defined or custom regular-expressions within a highlighted area
 Version: 0.0.1.9000
 Authors@R: person("Luke", "Smith", email = "lukedansmi@sbcglobal.net",
     role = c("aut", "cre"))
 URL: https://github.com/seasmith/AlignRegex
 BugReports: https://github.com/seasmith/AlignRegex/issues
-Description: A very simple tool for aligning regular expressions on different
-    lines within a highlighted region. Highlight the lines where the regular
-    expression exists, run the addin, and then choose either a pre-defined
-    regular expression or enter your own and execute.
+Description: A tool for aligning regular expressions on different lines within
+    a highlighted region. Highlight the lines where the regular-expression 
+    exists, run the addin, then choose either a pre-defined regular 
+    expression or enter your own, and execute.
 Imports:
     rstudioapi,
     shiny,
