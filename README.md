@@ -13,6 +13,23 @@ Main Demo
 
 ![Main demo](inst/media/main_demo.gif)
 
+Tips
+----
+
+Use only one `\` when searching for literals.
+
+``` r
+# i.e.
+
+# Use...
+"[A-Z]+\s"
+
+# ...instead of...
+"[A-Z]+\\s"
+
+# ...to search for a letter followed by a space.
+```
+
 Behavior of commented-out regular expressions
 ---------------------------------------------
 
